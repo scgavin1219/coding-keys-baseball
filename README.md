@@ -23,7 +23,7 @@ Playsers score points they do in a conventional game of baseball. After each hit
 representing players will move around the bases. If they get all the wayto home, they score. 
 The game will keep track of their score and update the high score if a playeris able to score 
 enough runs.
-![IMG_0015](https://user-images.githubusercontent.com/107864308/205180597-a5be7a87-2b52-45dd-8282-75a4e4309ac0.
+![IMG_0015](https://user-images.githubusercontent.com/107864308/205180597-a5be7a87-2b52-45dd-8282-75a4e4309ac0.jpg)
 
 ![IMG_0015](https://user-images.githubusercontent.com/107864308/205182924-8acb6d05-a423-4703-af0a-0a96a2fd7b4d.jpg)
 jpg)
