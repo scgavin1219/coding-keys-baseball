@@ -4,7 +4,8 @@
   "description": "Coding key baseball is a game to help programmers learn some of the common key strokes in  programming that they may have less experience with from conventional typing. In the game, a pitch will come in the form of a key. Based on the difficulty level, players will have a  certain amount of time to hit the key. For example, on medium difficulty, a player may have  2 seconds to hit the \"~\" key. If they do not hit the key in 2 seconds they are out.  Players get 3 outs and then the game is over.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack --watch --mode=development",
+    "build": "webpack --mode=production"
   },
   "repository": {
     "type": "git",
@@ -30,4 +31,5 @@
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.0"
   }
+
 }
