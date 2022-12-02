@@ -1,3 +1,6 @@
+//how you import in JS
+//import something from './scripts/field'
+
 document.addEventListener("DOMContentLoaded", () => {
     var seconds = 0;
     var tens = 0;

@@ -1,6 +1,6 @@
 
 
-// export default class Field { 
+// class Field { 
 //     constructor(dimensions) {
 //         this.dimensions = dimensions; 
 
@@ -11,4 +11,8 @@
 //         ctx.fillRect(0, 0, this.dimensions.width, this.dimensions.height)
 //     }
 // }
+
+
+//how to export this class
+//export default Field;
 
