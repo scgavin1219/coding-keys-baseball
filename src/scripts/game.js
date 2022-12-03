@@ -1,6 +1,7 @@
 import Field from "./field"
 import StopWatch from "./stopwatch"
 
+
 class Game { 
     constructor() { 
         this.field = new Field()
@@ -10,7 +11,7 @@ class Game {
         this.secondBase = (400, 100)
         this.thirdBase =(650, 250)
         this.homeBase = (400, 400)
-        this.batter
+        this.batter = batter
     }
 
     createBatter(){ 
