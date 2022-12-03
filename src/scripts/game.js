@@ -6,28 +6,66 @@ class Game {
         this.field = new Field()
         this.field.makeField()
         this.stopwatch = new StopWatch()
-        this.firstBase = ()
+        this.firstBase = (550, 250)
+        this.secondBase = (400, 100)
+        this.thirdBase =(650, 250)
+        this.homeBase = (400, 400)
+        this.batter
     }
 
     createBatter(){ 
         //batters position
-        let batter = new Batter(400, 400)
+        let batter = new Batter()
     }
 
-    checkBase() { 
+    checkBase(batter) { 
         let first = (650, 250)
     }
 
-    draw() { 
-
+    allBatters() {
+        return [].concat(this.batter);
     }
 
-    animate() { 
+    draw() { 
+        ctx.clearRect(0, 0, 800, 600);
+        this.field.makeField;
+        ctx.fillRect(0, 0, Game.DIM_X, Game.DIM_Y);
+        this.allBatters().forEach((batter) => {
+            batter.draw(ctx);
+        });
+    }
 
+    animate(time) {
+        const timeDelta = time - this.lastTime;
+        this.game.step(timeDelta);
+        this.game.draw(this.ctx);
+        this.lastTime = time;
+        // every call to animate requests causes another call to animate
+        requestAnimationFrame(this.animate.bind(this));
+    
     }
 
 
     advance() { 
+        let x;
+        let y;
+        let dX = 1;
+        let dY = 1;
+         if (batter.pos === this.firstBase) { 
+             
+         }
+
+         if (batter.pos === this.secondBase) { 
+
+         }
+
+         if (batter.pos === this.thirdBase) { 
+
+         }
+
+         if (batter.pos ===this.homeBase) {
+
+          }
 
     }
 }
