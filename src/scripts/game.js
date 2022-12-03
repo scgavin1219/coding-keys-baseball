@@ -1,6 +1,38 @@
+import Field from "./field"
+import StopWatch from "./stopwatch"
+
+class Game { 
+    constructor() { 
+        this.field = new Field()
+        this.field.makeField()
+        this.stopwatch = new StopWatch()
+        this.firstBase = ()
+    }
+
+    createBatter(){ 
+        //batters position
+        let batter = new Batter(400, 400)
+    }
+
+    checkBase() { 
+        let first = (650, 250)
+    }
+
+    draw() { 
+
+    }
+
+    animate() { 
+
+    }
 
 
+    advance() { 
 
+    }
+}
+
+export default Game
 
 
 
