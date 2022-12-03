@@ -7,9 +7,11 @@ import Game from './scripts/game'
 
 document.addEventListener("DOMContentLoaded", () => {
     let game = new Game()
+    
 
 });
 
+animate()
 // document.addEventListener("DOMContentLoaded", () => {
 //     var seconds = 0;
 //     var tens = 0;
