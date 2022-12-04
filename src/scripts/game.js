@@ -10,60 +10,66 @@ class Game {
 
     }
 
-    drawHomerun() {
-        let x = 400
-        let y = 400
-        let dx = 0
-        let dy = 1
-        console.log("homer")
-        c.fillStyle = "blue"
-        c.fillRect(x, y, 10, 10)
+    //moved to ball class
 
-        if (y > 600) {
-            dx = -0.5;
-            dy = -1;
-        }
-        x += dx
-        y += dy
-    }
-    drawOut() {
-        let x = 400
-        let y = 400
-        let dx = 0
-        let dy = 1
-        c.fillStyle = "red"
-        c.fillRect(x, y, 20, 20)
+    // drawHomerun() {
+    //     let x = 400
+    //     let y = 400
+    //     let dx = 0
+    //     let dy = 1
+    //     console.log("homer")
+    //     c.fillStyle = "blue"
+    //     c.fillRect(x, y, 10, 10)
 
-        if (y > 600) {
-            dx = 0.5;
-            dy = -1
-        }
-        if (y < 200) {
-            dx = 0
-            dy = 0
-        }
-        x += dx
-        y += dy
-    }
+    //     if (y > 600) {
+    //         dx = -0.5;
+    //         dy = -1;
+    //     }
+    //     x += dx
+    //     y += dy
+    // }
+    //moved to ball class
 
-    drawRunner() {
-        let z = 400
-        let w = 600
-        let dz = 1
-        let dw = -1
+    // drawOut() {
+    //     let x = 400
+    //     let y = 400
+    //     let dx = 0
+    //     let dy = 1
+    //     c.fillStyle = "red"
+    //     c.fillRect(x, y, 20, 20)
 
-        c.fillStyle = "green"
-        c.fillRect(z, w, 20, 20)
-        console.log("RUN")
-        if (z > 600 || z < 200) {
-            dz = -dz
-        }
-        if (w < 200 || w > 600) {
-            dw = -dw
-        }
-        z += dz
-        w += dw
-    }
+    //     if (y > 600) {
+    //         dx = 0.5;
+    //         dy = -1
+    //     }
+    //     if (y < 200) {
+    //         dx = 0
+    //         dy = 0
+    //     }
+    //     x += dx
+    //     y += dy
+    // }
+
+
+    //moved to batterclass
+    // drawRunner() {
+    //     let z = 400
+    //     let w = 600
+    //     let dz = 1
+    //     let dw = -1
+
+    //     c.fillStyle = "green"
+    //     c.fillRect(z, w, 20, 20)
+    //     console.log("RUN")
+    //     if (z > 600 || z < 200) {
+    //         dz = -dz
+    //     }
+    //     if (w < 200 || w > 600) {
+    //         dw = -dw
+    //     }
+    //     z += dz
+    //     w += dw
+    // }
 
     out() {
         drawOut()
