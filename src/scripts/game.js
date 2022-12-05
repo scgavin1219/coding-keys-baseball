@@ -1,11 +1,11 @@
 import Field from "./field"
 import StopWatch from "./stopwatch"
-
+import Baseball from "./ball"
 
 class Game { 
     constructor() { 
         this.field = new Field()
-        this.field.makeField()
+        //this.field.makeField()
         this.stopwatch = new StopWatch()
 
     }

@@ -1,6 +1,6 @@
 
 const baseball = new Image();
-baseball.src = '../imgs/baseballSprite.png'
+//baseball.src = '../imgs/baseballSprite.png'
 const baseballWidth = 32;
 const baseballHeight = 32;
 let frameY = 0;
@@ -43,6 +43,8 @@ class Baseball {
     }
 
 }
+
+export default Baseball;
 
 // const baseball1 = new Baseball();
 

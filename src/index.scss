@@ -1,7 +1,12 @@
 //CSS ENTRY FILE
 body { 
-    height: 1000px;
+    height: 100vh;
     width: 800px;
+    background: linear-gradient( 
+        0deg,
+        red 0%,
+        yellow 100%
+    );
 }
 
 
