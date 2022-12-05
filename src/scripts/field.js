@@ -16,7 +16,7 @@ class Field {
         const CANVAS_HEIGHT = this.height = 500;
 
         const background = new Image()
-        background.src = '../imgs/baseballfield.png';
+        background.src = './imgs/baseballfield.png';
         c.drawImage(background, 0, 0)
 
 

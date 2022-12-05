@@ -51,3 +51,8 @@ button {
   flex-direction: row;
   justify-content: center;
 }
+
+#title img {
+  height: 35px;
+  width: auto;
+}
