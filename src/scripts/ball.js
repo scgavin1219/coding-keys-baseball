@@ -44,23 +44,23 @@ class Baseball {
 
 }
 
-const baseball1 = new Baseball();
+// const baseball1 = new Baseball();
 
-function animate() {
-    c.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
-    c.drawImage(background, 0, 0)
-    baseball1.draw();
-    baseball1.update()
+// function animate() {
+//     c.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+//     c.drawImage(background, 0, 0)
+//     baseball1.draw();
+//     baseball1.update()
 
-    requestAnimationFrame(animate)
-}
+//     requestAnimationFrame(animate)
+// }
 
 
-animate()
+// animate()
 
     
         
-    })
+ 
 
 
 
