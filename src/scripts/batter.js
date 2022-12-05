@@ -11,7 +11,7 @@ class Batter {
         //this.image = //...src
     }
 
-    draw(c) { 
+    draw() { 
         
 
     }

@@ -6,21 +6,113 @@ import Batter from "./batter"
 // const canvas = document.getElementById("myCanvas")
 // console.log(canvas)
 // const c = canvas.getContext("2d")
-//const CANVAS_WIDTH = this.width = 690;
-//const CANVAS_HEIGHT = this.height = 500;
+// const CANVAS_WIDTH = 690;
+// const CANVAS_HEIGHT = 500;
+// const field = new Field()
+// field.makeField(c)
 
 
 
 class Game { 
-    constructor() { 
-        this.field = new Field()
-        this.field.makeField()
+    constructor(ctx) { 
+        // this.field = new Field()
+        // this.field.makeField(c)
         this.stopwatch = new StopWatch()
         this.baseball = new Baseball()
+        this.ctx = ctx
+        this.stopwatchRunning = false
+        this.animate = this.animate.bind(this)
+        this.animate()
+    }
+    animateField() {
+        //animating 
+        const background = new Image();
+        background.src = "./imgs/baseballfield.png";
+        this.ctx.drawImage(background, 0, 0, 690, 500);
+  
+    }
+
+    animateBaseball() { 
 
     }
 
-    //moved to ball class
+    animateBatter() { 
+    
+    }
+
+    animate() { 
+        this.ctx.clearRect(0, 0, 690, 500)
+        this.animateField()
+
+        requestAnimationFrame(this.animate)
+    }
+
+
+    gameloop() { 
+        
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//     animate() { 
+//         c.clearRect(0, 0, 690, 500)
+
+
+//         requestAnimationFrame(animate())
+
+//     }
+
+   
+
+//     out() {
+//         drawOut()
+//         setTimeout(() => {
+//             drawRunner()
+//             console.log("idk")
+//         }, 2000);
+
+//     }
+
+//     homer() {
+//         drawHomerun()
+//         setTimeout(() => {
+//             drawRunner()
+//         }, 500);
+//     }
+
+//     animate() {
+//         requestAnimationFrame(animate);
+//         drawField()
+//         //console.log("idk")
+//         drawRunner()
+//         setTimeout(() => {
+//             drawHomerun()
+//         }, 2000)
+//     //out()
+//     }
+
+    
+// }
+
+
+export default Game
+
+
+ //moved to ball class
 
     // drawHomerun() {
     //     let x = 400
@@ -81,38 +173,6 @@ class Game {
     //     w += dw
     // }
 
-    out() {
-        drawOut()
-        setTimeout(() => {
-            drawRunner()
-            console.log("idk")
-        }, 2000);
-
-    }
-
-    homer() {
-        drawHomerun()
-        setTimeout(() => {
-            drawRunner()
-        }, 500);
-    }
-
-    animate() {
-        requestAnimationFrame(animate);
-        drawField()
-        //console.log("idk")
-        drawRunner()
-        setTimeout(() => {
-            drawHomerun()
-        }, 2000)
-    //out()
-    }
-
-    
-}
-
-
-export default Game
 
 
 // createBatter(){

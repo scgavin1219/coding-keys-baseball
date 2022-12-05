@@ -1,11 +1,11 @@
 
-const baseball = new Image();
-baseball.src = './imgs/baseballSprite.png'
-const baseballWidth = 32;
-const baseballHeight = 32;
-let frameY = 0;
-let gameFrame = 0;
-const staggerFrames = 7;
+// const baseball = new Image();
+// baseball.src = './imgs/baseballSprite.png'
+// const baseballWidth = 32;
+// const baseballHeight = 32;
+// let frameY = 0;
+// let gameFrame = 0;
+// const staggerFrames = 7;
 
 
 class Baseball {
@@ -21,6 +21,8 @@ class Baseball {
         this.frame = 0
         this.gameFrame = 0
         this.staggerFrames = 7
+        this.image = new Image()
+        this.image.src = './imgs/baseballSprite.png'
     }
 
     update() {
@@ -38,7 +40,7 @@ class Baseball {
     }
 
     draw() {
-        c.drawImage(baseball, 0, this.frame * this.baseballHeight, this.baseballWidth, this.baseballHeight, this.x, this.y, this.width, this.height)
+        c.drawImage(this.image, 0, this.frame * this.baseballHeight, this.baseballWidth, this.baseballHeight, this.x, this.y, this.width, this.height)
 
     }
 
