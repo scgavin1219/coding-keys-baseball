@@ -1,13 +1,4 @@
 
-// const baseball = new Image();
-// baseball.src = './imgs/baseballSprite.png'
-// const baseballWidth = 32;
-// const baseballHeight = 32;
-// let frameY = 0;
-// let gameFrame = 0;
-// const staggerFrames = 7;
-
-
 class Baseball {
     constructor() {
         this.x = 295;
@@ -25,28 +16,67 @@ class Baseball {
         this.image.src = './imgs/baseballSprite.png'
     }
 
-    update() {
+    updateHomer() {
         this.gameFrame++
         if (this.gameFrame % 4 == 0) {
             this.frame > 4 ? this.frame = 0 : this.frame++;
         }
 
         if (this.y > 350) {
-            this.dx = Math.random() * 3 - 2;
-            this.dy = (Math.random() * -2)
+            this.dx = Math.random() * 4 - 2;
+            this.dy = -2;
         }
         this.x += this.dx
         this.y += this.dy;
     }
 
-    draw() {
-        c.drawImage(this.image, 0, this.frame * this.baseballHeight, this.baseballWidth, this.baseballHeight, this.x, this.y, this.width, this.height)
+    updateFlyOut(){ 
+        this.gameFrame++
+        if (this.gameFrame % 4 == 0) {
+            this.frame > 4 ? this.frame = 0 : this.frame++;
+        }
 
+        if (this.y > 350) {
+            this.dx = Math.random() * 4 - 2;
+            this.dy = -2;
+        } 
+        if (this.y < 120) { 
+            this.dx = 0;
+            this.dy = 0;
+        }
+        this.x += this.dx
+        this.y += this.dy
+    }
+
+
+
+    updateStrikeOut() { 
+        this.gameFrame++
+        if (this.gameFrame % 4 == 0) {
+            this.frame > 4 ? this.frame = 0 : this.frame++;
+            }
+            this.x += this.dx
+            this.y += this.dy
+    }
+
+    draw(ctx) {
+        ctx.drawImage(this.image, 0, this.frame * this.baseballHeight, this.baseballWidth, this.baseballHeight, this.x, this.y, this.width, this.height)
+        //ctx.drawImage(image, 0, 0, 32, dynamic, x, y, this.width, how tall pic is)
     }
 
 }
 
 export default Baseball;
+
+
+
+// const baseball = new Image();
+// baseball.src = './imgs/baseballSprite.png'
+// const baseballWidth = 32;
+// const baseballHeight = 32;
+// let frameY = 0;
+// let gameFrame = 0;
+// const staggerFrames = 7;
 
 // const baseball1 = new Baseball();
 

@@ -1,23 +1,25 @@
 class StopWatch {
     constructor() { 
         this.stopWatch()
+        this.status = "start"
     }
 
     stopWatch() {
 
-        var seconds = 0;
-        var tens = 0;
-        var countTens = document.getElementById('tens')
-        var countSeconds = document.getElementById('seconds')
-        var startButton = document.getElementById('start')
-        var stopButton = document.getElementById('stop')
-        var resetButton = document.getElementById('reset')
-        var time;
+        let seconds = 0;
+        let tens = 0;
+        let countTens = document.getElementById('tens')
+        let countSeconds = document.getElementById('seconds')
+        let startButton = document.getElementById('start')
+        let stopButton = document.getElementById('stop')
+        let resetButton = document.getElementById('reset')
+        let time;
         //will run when click on start
         console.log(startButton)
         console.log(stopButton)
 
         function startTimer() {
+            this.status = "running"
             tens++;
             if (tens < 9) {
                 countTens.innerHTML = "0" + tens;
@@ -45,6 +47,7 @@ class StopWatch {
 
         stopButton.addEventListener("click", function () {
             clearInterval(time);
+            this.status = "stopped"
         });
 
         resetButton.addEventListener("click", function () {
@@ -55,61 +58,11 @@ class StopWatch {
             tens = 0
             countSeconds.innerHTML = secondsCode
             countTens.innerHTML = tensCode
+            this.status = "start"
         })
     }
 }
 
 export default StopWatch
 
-    // document.addEventListener("DOMContentLoaded", () => {
-    //     var seconds = 0;
-    //     var tens = 0;
-    //     var countTens = document.getElementById('tens')
-    //     var countSeconds = document.getElementById('seconds')
-    //     var startButton = document.getElementById('start')
-    //     var stopButton = document.getElementById('stop')
-    //     var resetButton = document.getElementById('reset')
-    //     var time;
-    //     //will run when click on start
-    //     console.log(startButton)
-
-    //     function startTimer() {
-    //         tens++;
-    //         if (tens < 9) {
-    //             countTens.innerHTML = "0" + tens;
-    //         }
-
-    //         if (tens > 9) {
-    //             countTens.innerHTML = tens;
-    //         }
-
-    //         if (tens > 99) {
-    //             seconds++;
-    //             countSeconds.innerHTML = seconds + " :";
-    //             tens = 0
-    //             countTens.innerHTML = "0" + 0
-    //         }
-
-    //         if (seconds > 9) {
-    //             countSeconds.innerHTML = seconds;
-    //         }
-    //     }
-
-    //     startButton.addEventListener("click", function () {
-    //         time = setInterval(startTimer, 10)
-    //     });
-
-    //     stopButton.addEventListener("click", function () {
-    //         clearInterval(time);
-    //     });
-
-    //     resetButton.addEventListener("click", function () {
-    //         clearInterval(time);
-    //         let tensCode = "00"
-    //         let secondsCode = "0 :"
-    //         seconds = 0
-    //         tens = 0
-    //         countSeconds.innerHTML = secondsCode
-    //         countTens.innerHTML = tensCode
-    //     })
-    // });
+   

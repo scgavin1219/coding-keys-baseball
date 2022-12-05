@@ -3,6 +3,83 @@ import StopWatch from "./stopwatch"
 import Baseball from "./baseball"
 import Batter from "./batter"
 
+
+class Game { 
+    constructor(ctx) { 
+       
+        this.stopwatch = new StopWatch()
+        this.baseball = new Baseball()
+        this.batter = new Batter()
+        this.ctx = ctx
+        this.outs = 0
+        this.homers = 0
+        //this.stopwatchRunning = false
+        this.animate = this.animate.bind(this)
+        this.animate()
+    }
+    animateField() {
+        //animating field
+        const background = new Image();
+        background.src = "./imgs/field2.png";
+        this.ctx.drawImage(background, 0, 0, 690, 500);
+  
+    }
+
+    animateBaseball() { 
+        //animate different baseball options
+        if (this.getTime() >= 90 && this.getTime() <= 100 && this.stopwatch.status === "stopped") { 
+            this.baseball.draw(this.ctx)
+            this.baseball.updateHomer()
+            this.homers++
+        } else if (this.getTime() < 90 && this.stopwatch.status === "stopped") {
+            this.baseball.draw(this.ctx)
+            this.baseball.updateFlyOut()
+            this.outs++
+        } else { 
+            this.baseball.draw(this.ctx)
+            this.baseball.updateStrikeOut()
+            this.outs++
+        }
+    }
+
+    animateBatter() { 
+        //animate batter, only one option currently
+        this.batter.drawBatter(this.ctx)
+        this.batter.updateBatter()
+    }
+
+    animate() { 
+        this.ctx.clearRect(0, 0, 690, 500)
+        this.animateField()
+        this.baseball.draw(this.ctx)
+        this.baseball.updateHomer()
+        this.animateBatter()
+
+        requestAnimationFrame(this.animate)
+    }
+
+    getTime() { 
+        let seconds = document.getElementById('seconds').innerHTML[0]
+        let tenths = document.getElementById('tens').innerHTML
+        let time = parseInt(seconds + tenths)
+        return time;
+    }
+
+
+    gameloop() { 
+
+    }
+
+}
+
+
+ // this.field = new Field()
+        // this.field.makeField(c)
+
+
+
+
+
 // const canvas = document.getElementById("myCanvas")
 // console.log(canvas)
 // const c = canvas.getContext("2d")
@@ -10,58 +87,6 @@ import Batter from "./batter"
 // const CANVAS_HEIGHT = 500;
 // const field = new Field()
 // field.makeField(c)
-
-
-
-class Game { 
-    constructor(ctx) { 
-        // this.field = new Field()
-        // this.field.makeField(c)
-        this.stopwatch = new StopWatch()
-        this.baseball = new Baseball()
-        this.ctx = ctx
-        this.stopwatchRunning = false
-        this.animate = this.animate.bind(this)
-        this.animate()
-    }
-    animateField() {
-        //animating 
-        const background = new Image();
-        background.src = "./imgs/baseballfield.png";
-        this.ctx.drawImage(background, 0, 0, 690, 500);
-  
-    }
-
-    animateBaseball() { 
-
-    }
-
-    animateBatter() { 
-    
-    }
-
-    animate() { 
-        this.ctx.clearRect(0, 0, 690, 500)
-        this.animateField()
-
-        requestAnimationFrame(this.animate)
-    }
-
-
-    gameloop() { 
-        
-    }
-
-}
-
-
-
-
-
-
-
-
-
 
 
 
