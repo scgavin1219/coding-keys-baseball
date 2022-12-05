@@ -5,19 +5,23 @@ class Field {
             this.y = 0
             this.width = 690;
             this.height = 500;
-            this.makeField()
+            this.image = new Image();
+            this.image.src = './imgs/baseballfield.png'
+            //c.drawImage(backgroun)
+            //this.makeField()
         }
 
     makeField() { 
         const canvas = document.getElementById("myCanvas")
         console.log(canvas)
         const c = canvas.getContext("2d")
-        const CANVAS_WIDTH = this.width = 690;
-        const CANVAS_HEIGHT = this.height = 500;
-
+        //const CANVAS_WIDTH = this.width = 690;
+        //const CANVAS_HEIGHT = this.height = 500;
+        
         const background = new Image()
         background.src = './imgs/baseballfield.png';
         c.drawImage(background, 0, 0)
+        console.log(background)
 
 
     }

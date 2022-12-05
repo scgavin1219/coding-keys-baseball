@@ -1,12 +1,22 @@
 import Field from "./field"
 import StopWatch from "./stopwatch"
-import Baseball from "./ball"
+import Baseball from "./baseball"
+import Batter from "./batter"
+
+// const canvas = document.getElementById("myCanvas")
+// console.log(canvas)
+// const c = canvas.getContext("2d")
+//const CANVAS_WIDTH = this.width = 690;
+//const CANVAS_HEIGHT = this.height = 500;
+
+
 
 class Game { 
     constructor() { 
         this.field = new Field()
-        //this.field.makeField()
+        this.field.makeField()
         this.stopwatch = new StopWatch()
+        this.baseball = new Baseball()
 
     }
 

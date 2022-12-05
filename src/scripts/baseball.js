@@ -1,6 +1,6 @@
 
 const baseball = new Image();
-//baseball.src = '../imgs/baseballSprite.png'
+baseball.src = './imgs/baseballSprite.png'
 const baseballWidth = 32;
 const baseballHeight = 32;
 let frameY = 0;

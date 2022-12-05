@@ -5,8 +5,6 @@ class StopWatch {
 
     stopWatch() {
 
-
-   
         var seconds = 0;
         var tens = 0;
         var countTens = document.getElementById('tens')
@@ -17,6 +15,7 @@ class StopWatch {
         var time;
         //will run when click on start
         console.log(startButton)
+        console.log(stopButton)
 
         function startTimer() {
             tens++;
