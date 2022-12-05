@@ -13,7 +13,6 @@ class Game {
         this.ctx = ctx
         this.outs = 0
         this.homers = 0
-        //this.stopwatchRunning = false
         this.animate = this.animate.bind(this)
         this.animate()
     }
@@ -51,11 +50,19 @@ class Game {
     animate() { 
         this.ctx.clearRect(0, 0, 690, 500)
         this.animateField()
-        this.baseball.draw(this.ctx)
-        this.baseball.updateHomer()
-        this.animateBatter()
+        // this.baseball.draw(this.ctx)
+        // this.baseball.updateHomer()
+        // this.animateBatter()
+        this.drawOutsandHomers()
 
         requestAnimationFrame(this.animate)
+    }
+
+    drawOutsandHomers() { 
+        this.ctx.font= '48px serif'
+        this.ctx.fillStyle = 'white'
+        this.ctx.fillText(this.outs, 520, 475)
+        this.ctx.fillText(this.homers, 100, 475)
     }
 
     getTime() { 
@@ -65,6 +72,14 @@ class Game {
         return time;
     }
 
+    reset() { 
+        this.outs = 0 
+        this.homers = 0 
+    }
+    gameover() { 
+        
+
+    }
 
     gameloop() { 
 
