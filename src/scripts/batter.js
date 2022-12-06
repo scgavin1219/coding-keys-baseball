@@ -15,10 +15,14 @@ class Batter {
         //this.staggerFrames = 10
     }
 
-    updateBatter() {
+    updateBatter(ctx) {
         this.gameFrame++
         if (this.gameFrame % 15 == 0 && this.gameFrame > 20) {
-            this.frame > 9 ? this.frame = 10 : this.frame++;
+            if (this.frame > 3) {
+                ctx.drawImage(this.image, 0, 4 * this.batterHeight, this.batterWidth, this.batterHeight, this.x, this.y, this.width, this.height)
+            } else {
+                this.frame++
+             }
         }
     }
 
@@ -26,6 +30,12 @@ class Batter {
         //c.fillRect(this.x, this.y, this.width, this.height)
         ctx.drawImage(this.image, 0, this.frame * this.batterHeight, this.batterWidth, this.batterHeight, this.x, this.y, this.width, this.height)
 
+    }
+
+    batterReset(ctx) { 
+        this.gameFrame = 0
+        this.frame = 0
+        this.drawBatter(ctx)
     }
 
 }

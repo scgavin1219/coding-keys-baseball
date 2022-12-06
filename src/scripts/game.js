@@ -1,4 +1,4 @@
-import Field from "./field"
+//import Field from "./field"
 import StopWatch from "./stopwatch"
 import Baseball from "./baseball"
 import Batter from "./batter"
@@ -36,6 +36,7 @@ class Game {
         let button = document.getElementById('nextRound')
         const outDisplay = document.getElementById('out')
         const homerDisplay = document.getElementById('homer')
+
         //animate different baseball options
         if (this.getTime() >= 90 && this.getTime() <= 100 && roundStatus === "round over") { 
             this.baseball.draw(this.ctx)
@@ -64,7 +65,8 @@ class Game {
             
             roundStatus = "stop"
             this.stopwatch.status = 'stop'
-            outDisplay.style.display = 'flex'
+            outDisplay.style.display = 'block'
+            console.log(outDisplay.style)
             
         } else if (this.getTime() > 100 && roundStatus === "round over"){ 
             this.baseball.draw(this.ctx)
@@ -94,6 +96,8 @@ class Game {
         homerDisplay.style.display = 'none'
         this.outChecked = false
         this.stopwatch.resetStopwatch()
+        this.batter.batterReset(this.ctx)
+        this.baseball.resetBaseball()
 
         if (this.outs === 3) { 
             this.gameOver()
@@ -105,7 +109,7 @@ class Game {
     animateBatter() { 
         //animate batter, only one option currently
         this.batter.drawBatter(this.ctx)
-        this.batter.updateBatter()
+        this.batter.updateBatter(this.ctx)
     }
     
     //running our gamefunction
@@ -148,9 +152,11 @@ class Game {
     }
 
     gameOver() { 
-        console.log("fart")
         this.outs = 0
         this.homers = 0
+        this.stopwatch.resetStopwatch()
+        this.batter.batterReset(this.ctx)
+        this.baseball.resetBaseball()
     }
 
 

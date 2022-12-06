@@ -40,7 +40,7 @@ class Baseball {
             this.dx = Math.random() * 4 - 2;
             this.dy = -2;
         } 
-        if (this.y < 120) { 
+        if (this.y < 140) { 
             this.dx = 0;
             this.dy = 0;
         }
@@ -62,6 +62,15 @@ class Baseball {
     draw(ctx) {
         ctx.drawImage(this.image, 0, this.frame * this.baseballHeight, this.baseballWidth, this.baseballHeight, this.x, this.y, this.width, this.height)
         //ctx.drawImage(image, 0, 0, 32, dynamic, x, y, this.width, how tall pic is)
+    }
+
+    resetBaseball() { 
+        this.frame = 0
+        this.gameFrame = 0
+        this.dx = 0
+        this.dy = 1.5
+        this.x = 295
+        this.y = 260
     }
 
 }
