@@ -8,6 +8,7 @@ body {
 }
 
 #instructions {
+  font-family: "Space Mono", monospace;
   font-size: 16px;
 }
 
@@ -44,9 +45,9 @@ p {
 }
 
 button {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Space Mono", monospace;
   font-size: 16px;
-  height: 60px;
+  height: 50px;
   width: 80px;
   margin-left: 10px;
   margin-right: 10px;

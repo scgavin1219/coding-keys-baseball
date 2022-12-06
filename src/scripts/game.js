@@ -14,6 +14,7 @@ class Game {
         this.ctx = ctx
         this.outs = 0
         this.homers = 0
+        this.highscore = 0
         this.frame = 0
         this.outChecked = false
         this.animate = this.animate.bind(this)
@@ -23,7 +24,7 @@ class Game {
     animateField() {
         //animating field
         const background = new Image();
-        background.src = "./imgs/field2.png";
+        background.src = "./imgs/field3.png";
         this.ctx.drawImage(background, 0, 0, 690, 500);
   
     }
@@ -43,6 +44,7 @@ class Game {
 
             if (this.outChecked === false) {
                 this.homers++;
+                if (this.homers > this.highscore) this.highscore = this.homers;
                 this.outChecked = true
             }
 
@@ -124,8 +126,9 @@ class Game {
     drawOutsandHomers() { 
         this.ctx.font= '48px serif'
         this.ctx.fillStyle = 'white'
-        this.ctx.fillText(this.outs, 520, 475)
-        this.ctx.fillText(this.homers, 100, 475)
+        this.ctx.fillText(this.homers, 550, 465)
+        this.ctx.fillText(this.outs, 110, 465)
+        this.ctx.fillText(this.highscore, 575, 80 )
     }
 
     //gets what time is on the stopwatch
