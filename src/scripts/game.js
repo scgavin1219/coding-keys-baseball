@@ -33,6 +33,8 @@ class Game {
         let that = this;
         let roundStatus = document.getElementById('start').innerHTML
         let button = document.getElementById('nextRound')
+        const outDisplay = document.getElementById('out')
+        const homerDisplay = document.getElementById('homer')
         //animate different baseball options
         if (this.getTime() >= 90 && this.getTime() <= 100 && roundStatus === "round over") { 
             this.baseball.draw(this.ctx)
@@ -46,7 +48,8 @@ class Game {
 
             roundStatus = "stop"
             this.stopwatch.status = "stop"
-            //this.stopwatch.resetStopwatch()
+            homerDisplay.style.display ='flex'
+
 
         } else if (this.getTime() < 90 && roundStatus === "round over") {
             this.baseball.draw(this.ctx)
@@ -59,7 +62,7 @@ class Game {
             
             roundStatus = "stop"
             this.stopwatch.status = 'stop'
-            //this.stopwatch.resetStopwatch()
+            outDisplay.style.display = 'flex'
             
         } else if (this.getTime() > 100 && roundStatus === "round over"){ 
             this.baseball.draw(this.ctx)
@@ -70,23 +73,29 @@ class Game {
                 this.outs++;
                 this.outChecked = true
             }
-            this.stopwatch.status = 'stop'
-            roundStatus = "stop"
-            //this.stopwatch.resetStopwatch()
             
+            roundStatus = "stop"
+            this.stopwatch.status = 'stop'
+            outDisplay.style.display = 'flex' 
           
         }
-        //console.log(button)
-        button.addEventListener('click', that.resetGame)
+        button.addEventListener('click', this.resetGame.bind(that))
         
     }
 
   
-    //resets stopwatch && iterate outs and homers
+    //resets stopwatch && resetsoutChecked
     resetGame() { 
-        let that = this
+        const outDisplay = document.getElementById('out')
+        const homerDisplay = document.getElementById('homer')
+        outDisplay.style.display = 'none'
+        homerDisplay.style.display = 'none'
         this.outChecked = false
-        that.stopwatch.bind.resetStopwatch(that)
+        this.stopwatch.resetStopwatch()
+
+        if (this.outs === 3) { 
+            this.gameOver()
+        }
     }
     
 
@@ -103,6 +112,7 @@ class Game {
         this.animateField()
         this.batter.drawBatter(this.ctx)
         this.animateBaseball()
+    
         this.drawOutsandHomers()
         
        
@@ -127,12 +137,17 @@ class Game {
     }
 
   
-
     gameloop() { 
         this.animate()
        // setInterval(2000,this.stopwatch.resetStopwatch(this))
         //this.stopwatch.resetStopwatch()
           
+    }
+
+    gameOver() { 
+        console.log("fart")
+        this.outs = 0
+        this.homers = 0
     }
 
 

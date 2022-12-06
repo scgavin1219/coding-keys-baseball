@@ -22,7 +22,7 @@ body {
 }
 
 .links {
-  margin-right: 170px;
+  margin-right: 120px;
 }
 
 .footer {
@@ -69,4 +69,26 @@ button {
   height: 35px;
   width: auto;
   margin-right: 20px;
+}
+
+#homer {
+  display: none;
+}
+
+#out {
+  display: none;
+}
+
+#newRecord {
+  display: none;
+}
+
+.scores {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background: transparent;
+  height: 500px;
+  width: 690px;
 }
