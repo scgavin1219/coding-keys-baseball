@@ -18,7 +18,7 @@ class Batter {
     updateBatter() {
         this.gameFrame++
         if (this.gameFrame % 15 == 0 && this.gameFrame > 20) {
-            this.frame > 4 ? this.frame = 4 : this.frame++;
+            this.frame > 9 ? this.frame = 10 : this.frame++;
         }
     }
 

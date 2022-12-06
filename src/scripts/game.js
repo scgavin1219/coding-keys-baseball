@@ -46,12 +46,14 @@ class Game {
         if (this.getTime() >= 90 && this.getTime() <= 100 && roundStatus === "round over") { 
             this.baseball.draw(this.ctx)
             this.baseball.updateHomer()
+            this.animateBatter()
             roundStatus = "stop"
             //that.changeHomers()
             this.stopwatch.status = "stop"
         } else if (this.getTime() < 90 && roundStatus === "round over") {
             this.baseball.draw(this.ctx)
             this.baseball.updateFlyOut()
+            this.animateBatter()
             //this.changeOuts()
             roundStatus = "stop"
             
@@ -59,6 +61,7 @@ class Game {
         } else if (this.getTime() > 100 && roundStatus === "round over"){ 
             this.baseball.draw(this.ctx)
             this.baseball.updateStrikeOut()
+            this.animateBatter()
            // this.changeOuts()
             roundStatus = "stop"
             
@@ -76,8 +79,9 @@ class Game {
         this.ctx.clearRect(0, 0, 690, 500)
         this.animateField()
         this.animateBaseball()
+        //this.animateBatter()
         this.drawOutsandHomers()
-        this.stopwatch.reset()
+        
         
         // console.log(this.getTime())
         // console.log(this.stopwatch.status)
@@ -115,7 +119,7 @@ class Game {
     }
 
     gameloop() { 
-        
+
     }
 
     

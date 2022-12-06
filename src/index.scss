@@ -1,7 +1,7 @@
 //CSS ENTRY FILE
 body { 
     height: 100vh;
-    width: 690px;
+    width: 1000px;
     background: linear-gradient( 
         0deg,
         red 0%,
@@ -9,15 +9,31 @@ body {
     );
 }
 
-nav img { 
+#instructions { 
+    font-size: 16px;
+}
+
+.canvasContainer { 
+    display: flex;
+    flex-direction: row;
+}
+
+.links img { 
     height: 50px;
     width: 50px;
 }
 
-nav input { 
-    height: 50px;
-    width: 50px;
+.links { 
+    margin-right: 170px;
 }
+
+.footer { 
+    display: flex;
+    flex-direction: row;
+    
+}
+
+
 
 nav { 
     display: flex;
@@ -36,8 +52,8 @@ p {
 button { 
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 16px;
-    height: 40px;
-    width: 60px;
+    height: 60px;
+    width: 80px;
     margin-left: 10px;
     margin-right: 10px;
     box-shadow: 10px 5px 5px black;
@@ -58,4 +74,5 @@ button {
 #title img{ 
     height: 35px;
     width: auto;
+    margin-right: 20px;
 }

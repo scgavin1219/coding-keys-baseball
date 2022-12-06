@@ -16,18 +16,17 @@
             <img src ="imgs/stopwatch_derby.png">
         </div>
 
-        <!-- <div id="audio">
-            <audio id="sound">
-                <source
+        <div id="audio">
+            <audio id="sound" controls autoplay loop >
+                <source src="./audio/walktalk.mp3" type="audio/ogg">
             </audio>
-        </div> -->
+        </div>
 
 
-            <div class="links">
-                <input type="image" src="./imgs/audio.jpeg">
+            <!-- <div class="links">
                 <a href="https://github.com/scgavin1219"><img src="imgs/github.png"></a>
                 <a href="https://www.linkedin.com/in/dylan-gavin-a9595150/"><img src="imgs/linkedin.png"></a>
-            </div>
+            </div> -->
 
         </div>
     </nav>
@@ -39,23 +38,47 @@
             <img id="out" src="" alt="">
             <img id="newRecord" src="" alt="">
         </div>
-        
-        <canvas id="myCanvas"></canvas>
+        <div class="canvasContainer">
+            <div>
+                <canvas id="myCanvas"></canvas>
+            </div>
+            <div id="instructions">
+                <ul>Goal
+                    <li>Try to hit as many homeruns as you can
+                        before you get three outs.</li>
+                    <li>Stop the stopwatch between 0.90 and 1.00
+                        seconds to hit a homerun</li>
+                    <li>Any other result is an out!</li>
+                </ul>
+    
+                <ul>How to Play
+                    <li>Click the mouse to start the stopwatch</li>
+                    <li>Clic the mouse to stop the stopwatch</li>
+                    <li>HIT BOMBS!</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
-    <div class="container">
-        <p>
-            <span id="seconds">0 : </span> 
-            <span id="tens">00</span>
-        </p>
-        <div class="buttons">
-            <button id="start">start</button>
-            <!-- <button id="stop">Stop</button>
-            <button id="reset">Reset</button> -->
+
+    <div class="footer" id="footer">
+
+        <div class="links">
+            <a href="https://github.com/scgavin1219"><img src="imgs/github.png"></a>
+            <a href="https://www.linkedin.com/in/dylan-gavin-a9595150/"><img src="imgs/linkedin.png"></a>
         </div>
 
+        <div class="container">
+            <p>
+                <span id="seconds">0 : </span> 
+                <span id="tens">00</span>
+            </p>
+            <div class="buttons">
+                <button id="start">start</button>
+            </div>
+
+        </div>
     </div>
-   
 
     
 </body>
