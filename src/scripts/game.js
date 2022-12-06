@@ -8,6 +8,7 @@ class Game {
     constructor(ctx) { 
        
         this.stopwatch = new StopWatch()
+        this.stopwatch.bindEvents()
         this.baseball = new Baseball()
         this.batter = new Batter()
         this.ctx = ctx
@@ -23,21 +24,45 @@ class Game {
         this.ctx.drawImage(background, 0, 0, 690, 500);
   
     }
+    changeOuts() { 
+        if (this.outs === 0) { 
+            this.outs === 1
+        } else if (outs === 1) { 
+            this.outs === 2;
+        } else { 
+            this.gameover()
+        }
+    }
+
+    changeHomers() { 
+        if (this.homers === 0) this.homers === 1
+    }
+
 
     animateBaseball() { 
+        let that = this
+        let roundStatus = document.getElementById('start').innerHTML
         //animate different baseball options
-        if (this.getTime() >= 90 && this.getTime() <= 100 && this.stopwatch.status === "stopped") { 
+        if (this.getTime() >= 90 && this.getTime() <= 100 && roundStatus === "round over") { 
             this.baseball.draw(this.ctx)
             this.baseball.updateHomer()
-            this.homers++
-        } else if (this.getTime() < 90 && this.stopwatch.status === "stopped") {
+            roundStatus = "stop"
+            //that.changeHomers()
+            this.stopwatch.status = "stop"
+        } else if (this.getTime() < 90 && roundStatus === "round over") {
             this.baseball.draw(this.ctx)
             this.baseball.updateFlyOut()
-            this.outs++
-        } else { 
+            //this.changeOuts()
+            roundStatus = "stop"
+            
+            this.stopwatch.status = "stop"
+        } else if (this.getTime() > 100 && roundStatus === "round over"){ 
             this.baseball.draw(this.ctx)
             this.baseball.updateStrikeOut()
-            this.outs++
+           // this.changeOuts()
+            roundStatus = "stop"
+            
+            this.stopwatch.status = "stop"
         }
     }
 
@@ -50,14 +75,20 @@ class Game {
     animate() { 
         this.ctx.clearRect(0, 0, 690, 500)
         this.animateField()
-        // this.baseball.draw(this.ctx)
-        // this.baseball.updateHomer()
-        // this.animateBatter()
+        this.animateBaseball()
         this.drawOutsandHomers()
+        this.stopwatch.reset()
+        
+        // console.log(this.getTime())
+        // console.log(this.stopwatch.status)
+        // this.animateBatter()
+        //this.stopwatch.bindEvents()
+        
 
         requestAnimationFrame(this.animate)
     }
 
+    
     drawOutsandHomers() { 
         this.ctx.font= '48px serif'
         this.ctx.fillStyle = 'white'
@@ -73,20 +104,29 @@ class Game {
     }
 
     reset() { 
+        //display click to start
         this.outs = 0 
         this.homers = 0 
     }
     gameover() { 
-        
+        //display gameover 
+        this.reset;
 
     }
 
     gameloop() { 
-
+        
     }
+
+    
 
 }
 
+
+// let startButton = document.getElementById('start')
+// startButton.addEventListener("click", () => { 
+//     this.gameloop()
+// })
 
  // this.field = new Field()
         // this.field.makeField(c)
