@@ -14,7 +14,7 @@ class StopWatch {
         
         //let stopButton = document.getElementById('stop')
         //let resetButton = document.getElementById('reset')
-        console.log("hello")
+        
 
     
         this.tens++;
@@ -44,20 +44,19 @@ class StopWatch {
                 startButton.classList.remove('start');
                 startButton.textContent = 'round over'
                 that.status = 'pending'
-                //console.log(that.status)
                 clearInterval(that.time)
             } else { 
                 startButton.classList.add('start')
                 startButton.textContent = 'stop'
                 that.status = 'start'
-                //console.log(that)
                 that.time = setInterval(that.startTimer.bind(that), 10)
             }
     
         });   
     }
 
-    reset() { 
+    resetStopwatch() { 
+        let button = document.getElementById('start')
         clearInterval(this.time);
         let countTens = document.getElementById('tens')
         let countSeconds = document.getElementById('seconds')
@@ -68,6 +67,9 @@ class StopWatch {
         countSeconds.innerHTML = secondsCode
         countTens.innerHTML = tensCode
         this.status = "start"
+        button.innerHTML = "start"
+        //console.log('idk')
+        //console.log(button)
     }
 }
 

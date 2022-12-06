@@ -14,9 +14,12 @@ class Game {
         this.ctx = ctx
         this.outs = 0
         this.homers = 0
+        this.frame = 0
+        this.outChecked = false
         this.animate = this.animate.bind(this)
         this.animate()
     }
+
     animateField() {
         //animating field
         const background = new Image();
@@ -24,75 +27,90 @@ class Game {
         this.ctx.drawImage(background, 0, 0, 690, 500);
   
     }
-    changeOuts() { 
-        if (this.outs === 0) { 
-            this.outs === 1
-        } else if (outs === 1) { 
-            this.outs === 2;
-        } else { 
-            this.gameover()
-        }
-    }
-
-    changeHomers() { 
-        if (this.homers === 0) this.homers === 1
-    }
-
+  
 
     animateBaseball() { 
-        let that = this
+        let that = this;
         let roundStatus = document.getElementById('start').innerHTML
+        let button = document.getElementById('nextRound')
         //animate different baseball options
         if (this.getTime() >= 90 && this.getTime() <= 100 && roundStatus === "round over") { 
             this.baseball.draw(this.ctx)
             this.baseball.updateHomer()
             this.animateBatter()
+
+            if (this.outChecked === false) {
+                this.homers++;
+                this.outChecked = true
+            }
+
             roundStatus = "stop"
-            //that.changeHomers()
             this.stopwatch.status = "stop"
+            //this.stopwatch.resetStopwatch()
+
         } else if (this.getTime() < 90 && roundStatus === "round over") {
             this.baseball.draw(this.ctx)
             this.baseball.updateFlyOut()
             this.animateBatter()
-            //this.changeOuts()
-            roundStatus = "stop"
+            if (this.outChecked === false) {
+                this.outs++;
+                this.outChecked = true
+            }
             
-            this.stopwatch.status = "stop"
+            roundStatus = "stop"
+            this.stopwatch.status = 'stop'
+            //this.stopwatch.resetStopwatch()
+            
         } else if (this.getTime() > 100 && roundStatus === "round over"){ 
             this.baseball.draw(this.ctx)
             this.baseball.updateStrikeOut()
             this.animateBatter()
-           // this.changeOuts()
+
+            if (this.outChecked === false) { 
+                this.outs++;
+                this.outChecked = true
+            }
+            this.stopwatch.status = 'stop'
             roundStatus = "stop"
+            //this.stopwatch.resetStopwatch()
             
-            this.stopwatch.status = "stop"
+          
         }
+        //console.log(button)
+        button.addEventListener('click', that.resetGame)
+        
     }
 
+  
+    //resets stopwatch && iterate outs and homers
+    resetGame() { 
+        let that = this
+        this.outChecked = false
+        that.stopwatch.bind.resetStopwatch(that)
+    }
+    
+
+    //hitting animation
     animateBatter() { 
         //animate batter, only one option currently
         this.batter.drawBatter(this.ctx)
         this.batter.updateBatter()
     }
-
+    
+    //running our gamefunction
     animate() { 
         this.ctx.clearRect(0, 0, 690, 500)
         this.animateField()
+        this.batter.drawBatter(this.ctx)
         this.animateBaseball()
-        //this.animateBatter()
         this.drawOutsandHomers()
         
-        
-        // console.log(this.getTime())
-        // console.log(this.stopwatch.status)
-        // this.animateBatter()
-        //this.stopwatch.bindEvents()
-        
-
+       
+      
         requestAnimationFrame(this.animate)
     }
 
-    
+    //outs and homerun scores on board
     drawOutsandHomers() { 
         this.ctx.font= '48px serif'
         this.ctx.fillStyle = 'white'
@@ -100,6 +118,7 @@ class Game {
         this.ctx.fillText(this.homers, 100, 475)
     }
 
+    //gets what time is on the stopwatch
     getTime() { 
         let seconds = document.getElementById('seconds').innerHTML[0]
         let tenths = document.getElementById('tens').innerHTML
@@ -107,24 +126,36 @@ class Game {
         return time;
     }
 
-    reset() { 
-        //display click to start
-        this.outs = 0 
-        this.homers = 0 
-    }
-    gameover() { 
-        //display gameover 
-        this.reset;
-
-    }
+  
 
     gameloop() { 
-
+        this.animate()
+       // setInterval(2000,this.stopwatch.resetStopwatch(this))
+        //this.stopwatch.resetStopwatch()
+          
     }
 
-    
 
 }
+
+export default Game
+
+
+
+  // changeOuts() { 
+    //     if (this.outs === 0) {
+    //         this.outs === 1
+    //     } else if (outs === 1) {
+    //         this.outs === 2;
+    //     } else {
+    //         this.gameover()
+    //     }
+    // }
+
+    // changeHomers() {
+    //     if (this.homers === 0) this.homers === 1;
+    // }
+
 
 
 // let startButton = document.getElementById('start')
@@ -193,7 +224,7 @@ class Game {
 // }
 
 
-export default Game
+
 
 
  //moved to ball class
