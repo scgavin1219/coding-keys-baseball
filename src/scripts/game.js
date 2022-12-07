@@ -24,7 +24,7 @@ class Game {
     animateField() {
         //animating field
         const background = new Image();
-        background.src = "./imgs/field3.png";
+        background.src = "./imgs/field4.png";
         this.ctx.drawImage(background, 0, 0, 690, 500);
   
     }
@@ -140,10 +140,14 @@ class Game {
     //outs and homerun scores on board
     drawOutsandHomers() { 
         this.ctx.font= '48px scoreboard'
+        this.ctx.fillStyle ='black'
+        this.ctx.fillText("OUTS", 40, 400)
+        this.ctx.fillText("HR", 530, 400)
+        this.ctx.fillText("Record", 515, 52)
         this.ctx.fillStyle = 'white'
-        this.ctx.fillText(this.homers, 550, 465)
-        this.ctx.fillText(this.outs, 110, 465)
-        this.ctx.fillText(this.highscore, 575, 80 )
+        this.ctx.fillText(this.homers, 546, 460)
+        this.ctx.fillText(this.outs, 80, 460)
+        this.ctx.fillText(this.highscore, 575, 110 )
     }
 
     //gets what time is on the stopwatch
