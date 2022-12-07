@@ -36,6 +36,7 @@ class Game {
         let button = document.getElementById('nextRound')
         const outDisplay = document.getElementById('out')
         const homerDisplay = document.getElementById('homer')
+        const gameOverDisplay = document.getElementById('gameOver')
 
         //animate different baseball options
         if (this.getTime() >= 90 && this.getTime() <= 100 && roundStatus === "round over") { 
@@ -83,6 +84,12 @@ class Game {
             outDisplay.style.display = 'flex' 
           
         }
+        if (this.outs === 3) { 
+            outDisplay.style.display = 'none'
+            gameOverDisplay.style.display = 'flex'
+            button.innerHTML = 'play again'
+
+        } 
         button.addEventListener('click', this.resetGame.bind(that))
         
     }
@@ -90,8 +97,10 @@ class Game {
   
     //resets stopwatch && resetsoutChecked
     resetGame() { 
+        const button = document.getElementById('nextRound')
         const outDisplay = document.getElementById('out')
         const homerDisplay = document.getElementById('homer')
+        const gameOverDisplay = document.getElementById('gameOver')
         outDisplay.style.display = 'none'
         homerDisplay.style.display = 'none'
         this.outChecked = false
@@ -100,6 +109,8 @@ class Game {
         this.baseball.resetBaseball()
 
         if (this.outs === 3) { 
+            gameOverDisplay.style.display = 'none'
+            button.innerHTML = 'next round'
             this.gameOver()
         }
     }
@@ -128,7 +139,7 @@ class Game {
 
     //outs and homerun scores on board
     drawOutsandHomers() { 
-        this.ctx.font= '48px serif'
+        this.ctx.font= '48px scoreboard'
         this.ctx.fillStyle = 'white'
         this.ctx.fillText(this.homers, 550, 465)
         this.ctx.fillText(this.outs, 110, 465)
