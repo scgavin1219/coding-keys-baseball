@@ -66,7 +66,7 @@ class Game {
             
             roundStatus = "stop"
             this.stopwatch.status = 'stop'
-            outDisplay.style.display = 'block'
+            outDisplay.style.display = 'flex'
             console.log(outDisplay.style)
             
         } else if (this.getTime() > 100 && roundStatus === "round over"){ 
