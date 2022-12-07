@@ -14,9 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const ctx = canvas.getContext("2d")
     canvas.width = 690;
     canvas.height = 500;
-    // const background = new Image()
-    // background.src = "./imgs/baseballfield.png";
-    // c.drawImage(background, 0, 0, 690, 500)
+  
     
     let game = new Game(ctx)
    

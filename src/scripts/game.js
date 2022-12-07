@@ -12,11 +12,11 @@ class Game {
         this.stopwatch.bindEvents()
         this.baseball = new Baseball()
         this.batter = new Batter()
-        this.crowd = new Crowd()
+        //this.crowd = new Crowd()
         this.ctx = ctx
         this.outs = 0
         this.homers = 0
-        this.highscore = 0
+        this.highscore = localStorage.getItem('score') === "null" ? 0 : localStorage.getItem('score') 
         this.frame = 0
         this.outChecked = false
         this.animate = this.animate.bind(this)
@@ -49,7 +49,8 @@ class Game {
             if (this.outChecked === false) {
                 this.homers++;
                 if (this.homers > this.highscore) this.highscore = this.homers;
-                this.outChecked = true
+                this.outChecked = true;
+                localStorage.setItem('score' , this.highscore)
             }
 
             roundStatus = "stop"
@@ -132,7 +133,14 @@ class Game {
         this.ctx.clearRect(0, 0, 690, 500)
         this.animateField()
         //working on crowd rn
-        this.crowd.drawFan(this.ctx)
+        // this.crowdGenerator().forEach(fan=> { 
+        //     fan.drawFan(this.ctx);
+        //     fan.updateFan();
+        // })
+        // console.log(this.crowdGenerator())
+        
+
+
         this.batter.drawBatter(this.ctx)
         this.animateBaseball()
         this.drawOutsandHomers()
@@ -162,10 +170,6 @@ class Game {
         return time;
     }
 
-    //not in use
-    // gameloop() { 
-    //     this.animate()    
-    // }
 
     //starts new game
     gameOver() { 
@@ -175,6 +179,34 @@ class Game {
         this.batter.batterReset(this.ctx)
         this.baseball.resetBaseball()
     }
+
+    crowdGenerator() { 
+        //let dx = Math.random()
+        let member = Math.floor(Math.random() * 15)
+        let bleachers = []
+        for ( let i = 0; i < 500; i+= 25) { 
+            bleachers.push(new Crowd(i, 10,  (i/25) % 15))
+        }
+
+        for (let j = 0; j <= 210; j += 30) { 
+            bleachers.push(new Crowd(j , 50, ((j + 210)/30) % 15))
+        }
+        for (let z = 420; z <=500; z+= 30 ) { 
+            bleachers.push(new Crowd(z , 50, ((z + 420)/ 30) % 15))
+        }
+
+        for (let k = 0; k <= 100; k += 30) { 
+            bleachers.push(new Crowd(k, 90, ((k +420)/ 30) % 15 ))
+        }
+
+        for (let l = 0; l <60; l += 25) { 
+            bleachers.push(new Crowd(l, 130, ((l + 500)/25) % 15))
+        }
+        return bleachers;
+
+    }
+
+    
 
 }
 
