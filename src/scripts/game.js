@@ -24,7 +24,7 @@ class Game {
     animateField() {
         //animating field
         const background = new Image();
-        background.src = "./imgs/field4.png";
+        background.src = "./imgs/field5.png";
         this.ctx.drawImage(background, 0, 0, 690, 500);
   
     }
@@ -139,12 +139,13 @@ class Game {
 
     //outs and homerun scores on board
     drawOutsandHomers() { 
-        this.ctx.font= '48px scoreboard'
-        this.ctx.fillStyle ='black'
-        this.ctx.fillText("OUTS", 40, 400)
-        this.ctx.fillText("HR", 530, 400)
-        this.ctx.fillText("Record", 515, 52)
-        this.ctx.fillStyle = 'white'
+        this.ctx.font= '38px scoreboard'
+        this.ctx.fillStyle ='whitesmoke'
+        this.ctx.fillText("OUTS", 50, 400)
+        this.ctx.fillText("HR", 540, 398)
+        this.ctx.fillText("Record", 524, 48)
+        this.ctx.font = '48px scoreboard'
+        this.ctx.fillStyle = '#f8f8ba'
         this.ctx.fillText(this.homers, 546, 460)
         this.ctx.fillText(this.outs, 80, 460)
         this.ctx.fillText(this.highscore, 575, 110 )

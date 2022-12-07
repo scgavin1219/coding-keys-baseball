@@ -55,6 +55,7 @@ nav {
 p {
     height: 40px;
     width: 80px;
+    background-color: whitesmoke;
     border: solid 5px black;
     border-radius: 10%;
     padding: 10px;
@@ -64,7 +65,8 @@ p {
 
 button {
     font-family: 'scoreboard';
-    font-size: 16px;
+    font-weight: bold;
+    font-size: 18px;
     height: 50px;
     width: 80px;
     margin-left: 10px;
