@@ -15,7 +15,7 @@ class Game {
         this.ctx = ctx
         this.outs = 0
         this.homers = 0
-        this.highscore = localStorage.getItem('score') === "null" ? 0 : localStorage.getItem('score') 
+        this.highscore =  !localStorage.getItem('score') ? 0 : localStorage.getItem('score') 
         this.frame = 0
         this.outChecked = false
         this.bleachers = this.crowdGenerator()
