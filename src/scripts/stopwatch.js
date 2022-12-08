@@ -12,11 +12,6 @@ class StopWatch {
         let countTens = document.getElementById('tens')
         let countSeconds = document.getElementById('seconds')
         
-        //let stopButton = document.getElementById('stop')
-        //let resetButton = document.getElementById('reset')
-        
-
-    
         this.tens++;
         if (this.tens < 9) {
             countTens.innerHTML = "0" + this.tens;

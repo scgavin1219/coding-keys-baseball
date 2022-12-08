@@ -12,7 +12,6 @@ class Game {
         this.stopwatch.bindEvents()
         this.baseball = new Baseball()
         this.batter = new Batter()
-        //this.crowd = new Crowd()
         this.ctx = ctx
         this.outs = 0
         this.homers = 0
@@ -147,15 +146,10 @@ class Game {
     animate() { 
         this.ctx.clearRect(0, 0, 690, 500)
         this.animateField()
-        //working on crowd rn
         this.bleachers.forEach(fan=> { 
             fan.drawFan(this.ctx);
             fan.updateFanOut()
         })
-        //this.fanGenerator()
-        // console.log(this.crowdGenerator())
-        //this.fanGenerator()
-
         this.batter.drawBatter(this.ctx)
         this.animateBaseball()
         this.drawOutsandHomers()
@@ -194,12 +188,6 @@ class Game {
         this.batter.batterReset(this.ctx)
         this.baseball.resetBaseball()
     }
-
-    // fanGenerator() { 
-    //     let fan = new Crowd(15, 15, 3)
-    //     fan.drawFan(this.ctx)
-    //     fan.updateFan()
-    // }
 
     crowdGenerator() { 
         //let dx = Math.random()
