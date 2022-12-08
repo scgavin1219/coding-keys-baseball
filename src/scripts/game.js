@@ -19,6 +19,7 @@ class Game {
         this.highscore = localStorage.getItem('score') === "null" ? 0 : localStorage.getItem('score') 
         this.frame = 0
         this.outChecked = false
+        this.bleachers = this.crowdGenerator()
         this.animate = this.animate.bind(this)
         this.animate()
     }
@@ -112,6 +113,20 @@ class Game {
         this.stopwatch.resetStopwatch()
         this.batter.batterReset(this.ctx)
         this.baseball.resetBaseball()
+        
+        let xBleachers = [0, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275,
+            300, 325, 350, 375, 400, 425, 450, 475, 0, 30, 60, 90, 120, 150, 180,
+            210, 420, 450, 480, 0, 30, 60, 90, 0, 25, 50]
+        let yBleachers = [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10
+            , 10, 10, 10, 10, 10, 10, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
+            , 90, 90, 90, 90, 130, 130, 130]
+       
+    
+        for (let i = 0; i < 38; i++) {
+            this.bleachers[i].x = xBleachers[i]
+            this.bleachers[i].y = yBleachers[i]
+        }
+
 
         if (this.outs === 3) { 
             gameOverDisplay.style.display = 'none'
@@ -133,13 +148,13 @@ class Game {
         this.ctx.clearRect(0, 0, 690, 500)
         this.animateField()
         //working on crowd rn
-        // this.crowdGenerator().forEach(fan=> { 
-        //     fan.drawFan(this.ctx);
-        //     fan.updateFan();
-        // })
+        this.bleachers.forEach(fan=> { 
+            fan.drawFan(this.ctx);
+            fan.updateFanOut()
+        })
+        //this.fanGenerator()
         // console.log(this.crowdGenerator())
-        
-
+        //this.fanGenerator()
 
         this.batter.drawBatter(this.ctx)
         this.animateBaseball()
@@ -180,31 +195,30 @@ class Game {
         this.baseball.resetBaseball()
     }
 
+    // fanGenerator() { 
+    //     let fan = new Crowd(15, 15, 3)
+    //     fan.drawFan(this.ctx)
+    //     fan.updateFan()
+    // }
+
     crowdGenerator() { 
         //let dx = Math.random()
+        let xBleachers = [0, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275,
+            300, 325, 350, 375, 400, 425, 450, 475, 0, 30, 60, 90, 120, 150, 180,
+            210, 420, 450, 480, 0, 30, 60, 90, 0, 25, 50]
+        let yBleachers = [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10
+            , 10, 10, 10, 10, 10, 10, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
+            , 90, 90, 90, 90, 130, 130, 130]
         let member = Math.floor(Math.random() * 15)
         let bleachers = []
-        for ( let i = 0; i < 500; i+= 25) { 
-            bleachers.push(new Crowd(i, 10,  (i/25) % 15))
+        for (let i = 0; i < 38; i++) { 
+            bleachers.push(new Crowd(xBleachers[i], yBleachers[i], i % 15))
         }
-
-        for (let j = 0; j <= 210; j += 30) { 
-            bleachers.push(new Crowd(j , 50, ((j + 210)/30) % 15))
-        }
-        for (let z = 420; z <=500; z+= 30 ) { 
-            bleachers.push(new Crowd(z , 50, ((z + 420)/ 30) % 15))
-        }
-
-        for (let k = 0; k <= 100; k += 30) { 
-            bleachers.push(new Crowd(k, 90, ((k +420)/ 30) % 15 ))
-        }
-
-        for (let l = 0; l <60; l += 25) { 
-            bleachers.push(new Crowd(l, 130, ((l + 500)/25) % 15))
-        }
+        
         return bleachers;
 
     }
+    
 
     
 
@@ -213,3 +227,21 @@ class Game {
 export default Game
 
 
+// for ( let i = 0; i < 500; i+= 25) { 
+        //     bleachers.push(new Crowd(i, 10,  (i/25) % 15))
+        // }
+
+        // for (let j = 0; j <= 210; j += 30) {
+        //     bleachers.push(new Crowd(j , 50, ((j + 210)/30) % 15))
+        // }
+        // for (let z = 420; z <=500; z+= 30 ) {
+        //     bleachers.push(new Crowd(z , 50, ((z + 420)/ 30) % 15))
+        // }
+
+        // for (let k = 0; k <= 100; k += 30) {
+        //     bleachers.push(new Crowd(k, 90, ((k +420)/ 30) % 15 ))
+        // }
+
+        // for (let l = 0; l <60; l += 25) {
+        //     bleachers.push(new Crowd(l, 130, ((l + 500)/25) % 15))
+        // }
