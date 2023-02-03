@@ -214,22 +214,3 @@ class Game {
 
 export default Game
 
-
-// for ( let i = 0; i < 500; i+= 25) { 
-        //     bleachers.push(new Crowd(i, 10,  (i/25) % 15))
-        // }
-
-        // for (let j = 0; j <= 210; j += 30) {
-        //     bleachers.push(new Crowd(j , 50, ((j + 210)/30) % 15))
-        // }
-        // for (let z = 420; z <=500; z+= 30 ) {
-        //     bleachers.push(new Crowd(z , 50, ((z + 420)/ 30) % 15))
-        // }
-
-        // for (let k = 0; k <= 100; k += 30) {
-        //     bleachers.push(new Crowd(k, 90, ((k +420)/ 30) % 15 ))
-        // }
-
-        // for (let l = 0; l <60; l += 25) {
-        //     bleachers.push(new Crowd(l, 130, ((l + 500)/25) % 15))
-        // }

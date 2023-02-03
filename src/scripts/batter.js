@@ -1,4 +1,3 @@
-//import Field from './scripts/field'
 
 class Batter {
     constructor() {

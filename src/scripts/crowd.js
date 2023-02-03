@@ -15,8 +15,6 @@ class Crowd {
             this.image = new Image();
             this.image.src = './imgs/crowd2.png'
            
-            
-            
     }
  
 
@@ -41,7 +39,6 @@ class Crowd {
         this.y += this.dy
     }
 
-    
 }
 
 export default Crowd
